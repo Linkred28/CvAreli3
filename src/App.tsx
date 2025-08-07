@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import './index.css';
+import './App.css';
 
 const carouselItems = [
   { emoji: '📊', label: 'Estrategia Empresarial' },
@@ -23,17 +23,17 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-white text-gray-800 font-sans">
-      {/* TÍTULO CENTRAL ANIMADO */}
-      <header className="bg-[#0b172b] text-white py-10 text-center">
-        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight animate-pulse-glow">
+      {/* TÍTULO ANIMADO */}
+      <header className="bg-[#0b172b] text-white py-10 text-center relative overflow-hidden">
+        <h1 className="text-4xl font-bold tracking-wide glow-gold">
           Curriculum Vitae
         </h1>
-        <div className="mt-4 text-xl text-[#ffd700] font-medium transition-opacity duration-500 ease-in-out">
+        <div className="mt-2 text-lg text-[#ffd700] font-semibold">
           {carouselItems[currentIndex].emoji} {carouselItems[currentIndex].label}
         </div>
       </header>
 
-      {/* SECCIÓN DE PERFIL PROFESIONAL */}
+      {/* CONTENIDO DE PRUEBA */}
       <main className="p-8 max-w-4xl mx-auto">
         <section className="mb-10">
           <h2 className="text-2xl font-bold text-[#0b172b] mb-4">
