@@ -2,46 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-/* MARQUEE */
-.marquee-wrapper {
-  overflow: hidden;
-  position: relative;
-}
-
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: scroll-left 25s linear infinite;
-}
-
-.marquee-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-weight: 500;
-  color: #1f2937;
-}
-
-.icon {
-  width: 1rem;
-  height: 1rem;
-  color: #059669;
-}
-
-@keyframes scroll-left {
+/* Animación personalizada para el título */
+@keyframes pulseGlow {
   0% {
-    transform: translateX(0%);
+    text-shadow: 0 0 0px #ffd700;
+  }
+  50% {
+    text-shadow: 0 0 12px #ffd700, 0 0 24px #ffd700;
   }
   100% {
-    transform: translateX(-50%);
+    text-shadow: 0 0 0px #ffd700;
   }
 }
 
-/* CARD GENÉRICA */
-.card {
-  background: white;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+.animate-pulse-glow {
+  animation: pulseGlow 2s infinite;
 }
