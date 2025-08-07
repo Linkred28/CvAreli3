@@ -187,7 +187,7 @@ const portfolioData = {
     { language: 'Inglés', proficiency: 'Fluido' },
   ],
   contact: {
-    email: 'areliaguilarin@gmail.com',
+    email: 'areliaguilarln@gmail.com',
     phone: '55 4341 3490',
     linkedin: 'https://www.linkedin.com/in/areli-aguilar/',
     cvUrl: '#',
