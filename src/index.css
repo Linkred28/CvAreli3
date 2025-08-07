@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* MARQUEE */
 .marquee-wrapper {
   overflow: hidden;
   position: relative;
@@ -6,16 +11,15 @@
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee 20s linear infinite;
+  animation: scroll-left 25s linear infinite;
 }
 
 .marquee-item {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-right: 3rem;
   font-weight: 500;
-  color: #0f172a;
+  color: #1f2937;
 }
 
 .icon {
@@ -24,11 +28,20 @@
   color: #059669;
 }
 
-@keyframes marquee {
+@keyframes scroll-left {
   0% {
     transform: translateX(0%);
   }
   100% {
     transform: translateX(-50%);
   }
+}
+
+/* CARD GENÉRICA */
+.card {
+  background: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
