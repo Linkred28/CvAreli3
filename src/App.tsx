@@ -4,9 +4,6 @@ import { User, Briefcase, GraduationCap, Globe, Zap, Brain, Landmark, FileText, 
  BarChart, Gem, Lightbulb, Info, Settings, Bot, Handshake, BookOpen, Flag, LayoutDashboard,
  CheckCircle, HeartHandshake, Phone, Mail, Linkedin, Download, Home } from 'lucide-react';
 
-// DATA STRUCTURE - TODOS LOS DATOS EN UN SOLO OBJETO PARA FACILITAR LA GESTIÓN Y
-// FUTURAS ACTUALIZACIONES
-
 const portfolioData = {
   profile: [
     {
@@ -200,18 +197,11 @@ const MarqueeCarousel = () => {
   const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
-    // Función para actualizar el estado del tamaño de la pantalla
     const handleResize = () => {
       setisLargeScreen(window.innerWidth >= 1024);
     };
-
-    // Inicializar el estado en la carga
     handleResize();
-
-    // Añadir el listener para redimensionar
     window.addEventListener('resize', handleResize);
-
-    // Limpiar el listener al desmontar el componente
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
@@ -223,18 +213,13 @@ const MarqueeCarousel = () => {
     { text: 'Gestión de Proyectos', icon: <LayoutDashboard size={24} /> },
     { text: 'Análisis para la Toma de Decisiones', icon: <Gem size={24} /> },
   ];
-
-  // Duplicamos las frases para crear un efecto de loop infinito
   const fullContent = [...phrases, ...phrases];
 
   if (!isLargeScreen) {
-    return null; // No renderizar en pantallas pequeñas
+    return null;
   }
 
   return (
-    // Se ha ajustado el contenedor para centrar verticalmente el contenido
-    // y se ha añadido un efecto al pasar el mouse sobre el contenedor para detener la animación.
-    // La altura se mantiene en h-12 y el margen superior en mt-4.
     <div
       className="bg-transparent overflow-hidden h-12 w-[calc(100vw-20rem)] ml-80 mt-4 marquee-container-wrapper flex items-center"
       onMouseEnter={() => setIsHovering(true)}
@@ -543,62 +528,60 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans antialiased text-gray-800">
-      <style>{`
-        /* Estilos para el título con animación de degradado */
-        @keyframes text-shine {
-          from { background-position: 0% center; }
-          to { background-position: 100% center; }
-        }
-        .text-shine-gradient {
-          background-image: linear-gradient(
-            90deg,
-            #106659 0%,
-            #a7f3d0 30%,
-            #106659 60%,
-            #a7f3d0 100%
-          );
-          background-size: 300% auto;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          color: transparent;
-          animation: text-shine 5s ease-in-out infinite;
-        }
-        
-        /* Estilos para el carrusel */
-        @keyframes marquee {
-          from { transform: translateX(0); }
-          to { transform: translateX(-100%); }
-        }
-
-        .marquee-container {
-          display: flex;
-          height: 100%;
-          animation: marquee 30s linear infinite;
-        }
-
-        .marquee-container.paused {
-          animation-play-state: paused;
-        }
-
-        .marquee-item {
-          flex-shrink: 0;
-          display: flex;
-          align-items: center;
-          white-space: nowrap;
-          padding: 0 2rem;
-          font-family: 'Inter', sans-serif;
-          font-size: 1.25rem;
-          font-weight: 500;
-          color: #106659;
-        }
-
-        .marquee-item .icon {
-          color: #d97706;
-          margin-right: 0.5rem;
-          display: inline-block;
-          vertical-align: middle;
-        }
-      `}</style>
+      <style>
+        {`
+          /* Estilos para el título con animación de degradado */
+          @keyframes text-shine {
+            from { background-position: 0% center; }
+            to { background-position: 100% center; }
+          }
+          .text-shine-gradient {
+            background-image: linear-gradient(
+              90deg,
+              #106659 0%,
+              #a7f3d0 30%,
+              #106659 60%,
+              #a7f3d0 100%
+            );
+            background-size: 300% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            animation: text-shine 5s ease-in-out infinite;
+          }
+          
+          /* Estilos para el carrusel */
+          @keyframes marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-100%); }
+          }
+          .marquee-container {
+            display: flex;
+            height: 100%;
+            animation: marquee 30s linear infinite;
+          }
+          .marquee-container.paused {
+            animation-play-state: paused;
+          }
+          .marquee-item {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            padding: 0 2rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #106659;
+          }
+          .marquee-item .icon {
+            color: #d97706;
+            margin-right: 0.5rem;
+            display: inline-block;
+            vertical-align: middle;
+          }
+        `}
+      </style>
       <Navigation
         activeSection={activeSection}
         onNavigate={handleNavigate}
