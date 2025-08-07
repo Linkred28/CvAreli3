@@ -221,7 +221,7 @@ const MarqueeCarousel = () => {
 
   return (
     <div
-      className="bg-transparent overflow-hidden h-12 w-[calc(100vw-20rem)] ml-80 mt-4 marquee-container-wrapper flex items-center"
+      className="bg-transparent overflow-hidden h-12 w-[calc(100vw-20rem)] ml-80 mt-4 carousel-container flex items-center"
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
@@ -256,7 +256,7 @@ const Navigation = ({ activeSection, onNavigate, isMobileMenuOpen, toggleMobileM
           <div className="flex-shrink-0 flex items-center lg:flex-col lg:text-center">
             <User size={32} className="text-amber-600 mr-3 lg:mb-4" />
             <div className="flex flex-col items-center">
-              <h2 className="text-xl font-bold font-sans tracking-wider mb-2 text-shine-gradient">
+              <h2 className="text-xl font-bold font-sans tracking-wider mb-2 title-shine">
                 CURRICULUM VITAE
               </h2>
               <h1 className="text-2xl font-bold font-sans text-gray-50">
@@ -530,24 +530,19 @@ const App = () => {
     <div className="min-h-screen bg-gray-50 font-sans antialiased text-gray-800">
       <style>
         {`
-          /* Estilos para el título con animación de degradado */
-          @keyframes text-shine {
-            from { background-position: 0% center; }
-            to { background-position: 100% center; }
+          /* Animación de resplandor para el título */
+          @keyframes shine-glow {
+            0%, 100% {
+              text-shadow: 0 0 5px #fff, 0 0 10px #fff;
+            }
+            50% {
+              text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #ffa500;
+            }
           }
-          .text-shine-gradient {
-            background-image: linear-gradient(
-              90deg,
-              #106659 0%,
-              #a7f3d0 30%,
-              #106659 60%,
-              #a7f3d0 100%
-            );
-            background-size: 300% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            color: transparent;
-            animation: text-shine 5s ease-in-out infinite;
+          
+          .title-shine {
+            color: white;
+            animation: shine-glow 3s ease-in-out infinite;
           }
           
           /* Estilos para el carrusel */
@@ -559,10 +554,17 @@ const App = () => {
             display: flex;
             height: 100%;
             animation: marquee 30s linear infinite;
+            animation-play-state: running;
           }
           .marquee-container.paused {
             animation-play-state: paused;
           }
+          
+          /* Efecto hover para pausar el carrusel */
+          .carousel-container:hover .marquee-container {
+            animation-play-state: paused;
+          }
+          
           .marquee-item {
             flex-shrink: 0;
             display: flex;

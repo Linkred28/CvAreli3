@@ -1,3 +1,18 @@
+/* Animación de resplandor para el título */
+@keyframes shine-glow {
+  0%, 100% {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff;
+  }
+  50% {
+    text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #ffa500;
+  }
+}
+
+.title-shine {
+  color: white;
+  animation: shine-glow 3s ease-in-out infinite;
+}
+
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-100%); }
@@ -7,9 +22,15 @@
   display: flex;
   height: 100%;
   animation: marquee 30s linear infinite;
+  animation-play-state: running;
 }
 
 .marquee-container.paused {
+  animation-play-state: paused;
+}
+
+/* Efecto hover para pausar el carrusel */
+.carousel-container:hover .marquee-container {
   animation-play-state: paused;
 }
 
