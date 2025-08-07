@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import './App.css';
+import './index.css'; // ✅ Aquí el cambio
 
 const carouselItems = [
   { emoji: '📊', label: 'Estrategia Empresarial' },
