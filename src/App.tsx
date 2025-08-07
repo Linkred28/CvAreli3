@@ -32,10 +32,10 @@ const portfolioData = {
       'Motores de búsqueda': 'Búsqueda avanzada y análisis de información',
       'Correo electrónico': 'Gestión Profesional de comunicaciones',
       'Soluciones inteligentes': 'Implementación de Inteligencia Artificial para optimización de procesos',
+      'Tecnologías emergentes': 'Aplicación en gestión empresarial y análisis estratégico',
+      'Gestión empresarial': 'Sólidas habilidades administrativas',
+      'Análisis Estratégico': 'Evaluación y toma de decisiones empresariales',
     },
-    'Tecnologías emergentes': 'Aplicación en gestión empresarial y análisis estratégico',
-    'Gestión empresarial': 'Sólidas habilidades administrativas',
-    'Análisis Estratégico': 'Evaluación y toma de decisiones empresariales',
     management: [
       'Altamente organizada y autónoma',
       'Precisión y confidencialidad de la información',
@@ -240,37 +240,6 @@ const MarqueeCarousel = () => {
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
-      <style>{`
-        @keyframes marquee {
-          from { transform: translateX(0); }
-          to { transform: translateX(-100%); }
-        }
-        .marquee-container {
-          display: flex;
-          height: 100%;
-          animation: marquee 30s linear infinite;
-        }
-        .marquee-container.paused {
-          animation-play-state: paused;
-        }
-        .marquee-item {
-          flex-shrink: 0;
-          display: flex;
-          align-items: center;
-          white-space: nowrap;
-          padding: 0 2rem;
-          font-family: 'Inter', sans-serif;
-          font-size: 1.25rem;
-          font-weight: 500;
-          color: #106659;
-        }
-        .marquee-item .icon {
-          color: #d97706;
-          margin-right: 0.5rem;
-          display: inline-block;
-          vertical-align: middle;
-        }
-      `}</style>
       <div className={`marquee-container ${isHovering ? 'paused' : ''}`}>
         {fullContent.map((item, index) => (
           <div key={index} className="marquee-item">
@@ -302,27 +271,6 @@ const Navigation = ({ activeSection, onNavigate, isMobileMenuOpen, toggleMobileM
           <div className="flex-shrink-0 flex items-center lg:flex-col lg:text-center">
             <User size={32} className="text-amber-600 mr-3 lg:mb-4" />
             <div className="flex flex-col items-center">
-              {/* Nuevo título con el degradado y animación */}
-              <style>{`
-                @keyframes text-shine {
-                  from { background-position: 0% center; }
-                  to { background-position: 100% center; }
-                }
-                .text-shine-gradient {
-                  background-image: linear-gradient(
-                    90deg,
-                    #106659 0%,
-                    #a7f3d0 30%,
-                    #106659 60%,
-                    #a7f3d0 100%
-                  );
-                  background-size: 300% auto;
-                  -webkit-background-clip: text;
-                  -webkit-text-fill-color: transparent;
-                  color: transparent;
-                  animation: text-shine 5s ease-in-out infinite;
-                }
-              `}</style>
               <h2 className="text-xl font-bold font-sans tracking-wider mb-2 text-shine-gradient">
                 CURRICULUM VITAE
               </h2>
@@ -595,6 +543,62 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans antialiased text-gray-800">
+      <style>{`
+        /* Estilos para el título con animación de degradado */
+        @keyframes text-shine {
+          from { background-position: 0% center; }
+          to { background-position: 100% center; }
+        }
+        .text-shine-gradient {
+          background-image: linear-gradient(
+            90deg,
+            #106659 0%,
+            #a7f3d0 30%,
+            #106659 60%,
+            #a7f3d0 100%
+          );
+          background-size: 300% auto;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          color: transparent;
+          animation: text-shine 5s ease-in-out infinite;
+        }
+        
+        /* Estilos para el carrusel */
+        @keyframes marquee {
+          from { transform: translateX(0); }
+          to { transform: translateX(-100%); }
+        }
+
+        .marquee-container {
+          display: flex;
+          height: 100%;
+          animation: marquee 30s linear infinite;
+        }
+
+        .marquee-container.paused {
+          animation-play-state: paused;
+        }
+
+        .marquee-item {
+          flex-shrink: 0;
+          display: flex;
+          align-items: center;
+          white-space: nowrap;
+          padding: 0 2rem;
+          font-family: 'Inter', sans-serif;
+          font-size: 1.25rem;
+          font-weight: 500;
+          color: #106659;
+        }
+
+        .marquee-item .icon {
+          color: #d97706;
+          margin-right: 0.5rem;
+          display: inline-block;
+          vertical-align: middle;
+        }
+      `}</style>
       <Navigation
         activeSection={activeSection}
         onNavigate={handleNavigate}
