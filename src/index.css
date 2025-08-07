@@ -1,15 +1,14 @@
 /* Animación de resplandor para el título */
 @keyframes shine-glow {
   0%, 100% {
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff;
+    text-shadow: 0 0 5px #10b981, 0 0 10px #10b981;
   }
   50% {
-    text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #ffa500;
+    text-shadow: 0 0 20px #10b981, 0 0 30px #10b981, 0 0 40px #10b981, 0 0 50px #ffa500;
   }
 }
 
 .title-shine {
-  color: white;
   animation: shine-glow 3s ease-in-out infinite;
 }
 
@@ -21,7 +20,7 @@
 .marquee-container {
   display: flex;
   height: 100%;
-  animation: marquee 30s linear infinite;
+  animation: marquee 45s linear infinite;
   animation-play-state: running;
 }
 
@@ -39,7 +38,7 @@
   display: flex;
   align-items: center;
   white-space: nowrap;
-  padding: 0 2rem;
+  padding: 0 3rem;
   font-family: 'Inter', sans-serif;
   font-size: 1.25rem;
   font-weight: 500;

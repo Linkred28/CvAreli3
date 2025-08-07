@@ -213,7 +213,7 @@ const MarqueeCarousel = () => {
     { text: 'Gestión de Proyectos', icon: <LayoutDashboard size={24} /> },
     { text: 'Análisis para la Toma de Decisiones', icon: <Gem size={24} /> },
   ];
-  const fullContent = [...phrases, ...phrases];
+  const fullContent = [...phrases, ...phrases, ...phrases];
 
   if (!isLargeScreen) {
     return null;
