@@ -1,62 +1,34 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* ---------------------- */
-/* ✨ Efecto de Título CV */
-/* ---------------------- */
-@keyframes shine-glow {
-  0%, 100% {
-    text-shadow: 0 0 5px #10b981, 0 0 10px #10b981;
-  }
-  50% {
-    text-shadow: 0 0 20px #10b981, 0 0 30px #10b981, 0 0 40px #10b981, 0 0 50px #ffa500;
-  }
-}
-
-.title-shine {
-  color: #10b981 !important;
-  animation: shine-glow 3s ease-in-out infinite;
-}
-
-/* ------------------------- */
-/* 🚀 Carrusel Marquee Loop */
-/* ------------------------- */
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-100%); }
-}
-
+/* Carrusel: contenedor general con desplazamiento infinito */
 .marquee-container {
   display: flex;
-  height: 100%;
-  animation: marquee 45s linear infinite;
-  animation-play-state: running;
+  white-space: nowrap;
+  animation: scroll 20s linear infinite;
 }
 
-.marquee-container.paused {
-  animation-play-state: paused;
-}
-
-.carousel-container:hover .marquee-container {
-  animation-play-state: paused;
+.paused {
+  animation-play-state: paused !important;
 }
 
 .marquee-item {
-  flex-shrink: 0;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  white-space: nowrap;
-  padding: 0 3rem;
-  font-family: 'Inter', sans-serif;
-  font-size: 1.25rem;
+  gap: 0.5rem;
+  padding: 0 1.5rem;
   font-weight: 500;
-  color: #106659;
+  color: #1f2937; /* gris oscuro */
+  font-size: 1rem;
 }
 
 .marquee-item .icon {
-  color: #d97706;
-  margin-right: 0.5rem;
-  display: inline-block;
-  vertical-align: middle;
+  color: #059669; /* verde esmeralda */
+}
+
+/* Animación de desplazamiento continuo */
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-33.33%); /* Ajustado para repetir bien si triplicas el array */
+  }
 }
