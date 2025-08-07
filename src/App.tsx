@@ -1,57 +1,60 @@
-import { useState } from 'react';
-import {
-  Landmark,
-  BarChart,
-  Brain,
-  Zap,
-  LayoutDashboard,
-  Gem,
-} from 'lucide-react';
-
-function MarqueeCarousel() {
-  const [isHovering, setIsHovering] = useState(false);
-
-  const phrases = [
-    { text: 'Estrategia Empresarial', icon: <Landmark size={20} /> },
-    { text: 'Orientación a Resultados', icon: <BarChart size={20} /> },
-    { text: 'Pensamiento Crítico y Sistémico', icon: <Brain size={20} /> },
-    { text: 'IA y Tecnología en Evolución', icon: <Zap size={20} /> },
-    { text: 'Gestión de Proyectos', icon: <LayoutDashboard size={20} /> },
-    { text: 'Análisis para la Toma de Decisiones', icon: <Gem size={20} /> },
-  ];
-
-  const scrollingContent = [...phrases, ...phrases];
-
-  return (
-    <div
-      className="marquee-wrapper ml-80 mt-4 hidden lg:block"
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
-    >
-      <div className={`marquee-track ${isHovering ? 'paused' : ''}`}>
-        {scrollingContent.map((item, index) => (
-          <div key={index} className="marquee-item">
-            <span className="icon">{item.icon}</span>
-            <span>{item.text}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+import './index.css';
+import { Briefcase, Lightbulb, Globe2 } from 'lucide-react';
 
 function App() {
   return (
-    <div className="min-h-screen bg-white flex flex-col items-start justify-start p-12">
-      {/* Título */}
-      <h1 className="text-5xl font-bold mb-4 title-shine ml-80 mt-10">
-        Gibrán Dosal
-      </h1>
+    <div className="flex min-h-screen bg-white flex-col">
+      {/* TÍTULO CENTRAL ANIMADO */}
+      <header className="py-8 text-center bg-gray-100 shadow-md">
+        <h1 className="text-4xl md:text-5xl font-extrabold title-shine tracking-tight">
+          Curriculum Vitae
+        </h1>
+      </header>
 
-      {/* Carrusel */}
-      <MarqueeCarousel />
+      {/* CARRUSEL MARQUEE */}
+      <section className="marquee-wrapper bg-slate-100 border-y border-gray-300 py-4 hover:bg-slate-200 transition-all duration-300">
+        <div className="marquee-track">
+          {/* Repite los ítems del carrusel */}
+          {[...Array(2)].map((_, index) => (
+            <div key={index} className="flex">
+              <div className="marquee-item">
+                <Briefcase className="icon" />
+                Estrategia Empresarial
+              </div>
+              <div className="marquee-item">
+                <Globe2 className="icon" />
+                IA y Tecnología en Evolución
+              </div>
+              <div className="marquee-item">
+                <Lightbulb className="icon" />
+                Pensamiento Crítico y Sistémico
+              </div>
+              <div className="marquee-item">
+                <Briefcase className="icon" />
+                Orientación a Resultados
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
 
-      {/* Aquí puedes seguir agregando el resto de tu CV, secciones, etc. */}
+      {/* CONTENIDO EJEMPLO - PUEDES SUSTITUIR ESTO */}
+      <main className="p-6 max-w-4xl mx-auto text-gray-800">
+        <section className="mb-8">
+          <h2 className="text-2xl font-semibold mb-4 text-emerald-700">Perfil Profesional</h2>
+          <div className="space-y-4">
+            <div className="bg-white p-4 rounded-md border shadow-sm">
+              Ejecutiva bilingüe (inglés/español) con más de 20 años de experiencia en desarrollo de negocios,
+              gestión estratégica de proyectos y análisis de información clave para la toma de decisiones de alta dirección.
+            </div>
+            <div className="bg-white p-4 rounded-md border shadow-sm">
+              Mi trayectoria combina habilidades avanzadas en planeación y gestión administrativa con una visión estratégica
+              orientada a la transformación digital. Integro tecnologías emergentes —incluida la inteligencia artificial— para
+              modernizar procesos, fortalecer la gestión empresarial y optimizar la toma de decisiones.
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
   );
 }
