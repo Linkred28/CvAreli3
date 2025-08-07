@@ -288,9 +288,25 @@ const App = () => {
       <MarqueeCarousel />
 
       <main className="lg:ml-80 p-6 lg:p-8">
-        {/* Aquí irían tus secciones como <Section id="perfil" ... /> etc. */}
-        {/* Puedes copiar desde tu versión anterior el contenido de secciones con Section + ProfileCard, etc. */}
-      </main>
+  <section
+    id="perfil"
+    ref={(el) => (sectionRefs.current.perfil = el)}
+    className="bg-white p-8 rounded-2xl shadow-xl mb-12 transform hover:scale-[1.01] transition-transform duration-300"
+  >
+    <div className="flex items-center gap-4 mb-6 border-b pb-4 border-amber-600">
+      <h2 className="text-3xl font-bold text-emerald-700 font-sans">Perfil Profesional</h2>
+    </div>
+    {portfolioData.profile.map((item, index) => (
+      <div key={index} className="bg-white rounded-xl shadow-md p-6 mb-4 border border-gray-200">
+        <div className="flex items-start">
+          <div className="mr-4 text-emerald-700 mt-1">{item.icon}</div>
+          <p className="text-gray-800 text-lg leading-relaxed">{item.text}</p>
+        </div>
+      </div>
+    ))}
+  </section>
+</main>
+
     </div>
   );
 };
