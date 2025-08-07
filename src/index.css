@@ -1,0 +1,33 @@
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+.marquee-container {
+  display: flex;
+  height: 100%;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-container.paused {
+  animation-play-state: paused;
+}
+
+.marquee-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  padding: 0 2rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #106659;
+}
+
+.marquee-item .icon {
+  color: #d97706;
+  margin-right: 0.5rem;
+  display: inline-block;
+  vertical-align: middle;
+}
