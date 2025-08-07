@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 import { User, Briefcase, GraduationCap, Globe, Zap, Brain, Landmark, FileText, HardHat, Users,
   BarChart, Gem, Lightbulb, Info, Settings, Bot, Handshake, BookOpen, Flag, LayoutDashboard,
-  CheckCircle, HeartHandshake, Phone, Mail, Linkedin, Download, Home } from 'lucide-react';
+  CheckCircle, HeartHandshake, Phone, Mail, Linkedin, Download, Home, ArrowRight } from 'lucide-react';
 
 // DATA STRUCTURE - TODOS LOS DATOS EN UN SOLO OBJETO PARA FACILITAR LA GESTIÓN Y
 // FUTURAS ACTUALIZACIONES
@@ -477,20 +477,39 @@ const SkillsCard = ({ title, icon, iconColor, children }) => {
   );
 };
 
-// Nuevo componente para la tarjeta de contacto
+// Componente para la tarjeta de contacto
 const ContactCard = ({ icon, label, value, href }) => {
-  return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className="block">
-      <div className="bg-white rounded-xl shadow-md p-6 mb-4 border border-gray-200 transition all duration-300 hover:bg-gray-50 hover:shadow-lg">
+  const isLink = !!href;
+  const content = (
+    <div className={`bg-white rounded-xl shadow-md p-6 mb-4 border border-gray-200 transition-all duration-300 ${isLink ? 'bg-gray-100 shadow-lg' : ''}`}>
+      <div className="flex items-start justify-between">
         <div className="flex items-start">
           <div className="mr-4 text-amber-600 mt-1">{icon}</div>
           <div>
             <p className="text-sm font-semibold text-gray-500">{label}</p>
             <p className="text-lg font-bold text-emerald-700">{value}</p>
+            {isLink && (
+              <p className="text-sm text-gray-500 mt-1 break-all">{href}</p>
+            )}
           </div>
         </div>
+        {isLink && (
+          <div className="transition-opacity duration-300">
+            <ArrowRight size={24} className="text-emerald-700" />
+          </div>
+        )}
       </div>
+    </div>
+  );
+
+  return isLink ? (
+    <a href={href} className="block" target="_blank" rel="noopener noreferrer">
+      {content}
     </a>
+  ) : (
+    <div className="block cursor-default">
+      {content}
+    </div>
   );
 };
 
@@ -697,7 +716,6 @@ const App = () => {
               icon={<Mail size={24} />}
               label="Correo Electrónico"
               value={portfolioData.contact.email}
-              href={`mailto:${portfolioData.contact.email}`}
             />
             <ContactCard
               icon={<Linkedin size={24} />}
@@ -709,7 +727,6 @@ const App = () => {
               icon={<Phone size={24} />}
               label="Teléfono"
               value={portfolioData.contact.phone}
-              href={`tel:${portfolioData.contact.phone.replace(/\s/g, '')}`}
             />
           </div>
         </Section>
