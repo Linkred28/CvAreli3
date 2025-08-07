@@ -1,26 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Animación de resplandor para el título */
-@keyframes shine-glow {
-  0%, 100% {
-    text-shadow: 0 0 5px #10b981, 0 0 10px #10b981;
-  }
-  50% {
-    text-shadow: 0 0 20px #10b981, 0 0 30px #10b981, 0 0 40px #10b981, 0 0 50px #ffa500;
-  }
-}
-
-.title-shine {
-  animation: shine-glow 3s ease-in-out infinite;
-}
-
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-100%); }
 }
 
+@keyframes shine-glow {
+  0%, 100% {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff;
+  }
+  50% {
+    text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #ffa500;
+  }
+}
+
+.title-shine {
+  color: white !important;
+  animation: shine-glow 3s ease-in-out infinite;
+}
+
 .marquee-container {
   display: flex;
   height: 100%;
-  animation: marquee 45s linear infinite;
+  animation: marquee 60s linear infinite;
   animation-play-state: running;
 }
 

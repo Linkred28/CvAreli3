@@ -213,7 +213,7 @@ const MarqueeCarousel = () => {
     { text: 'Gestión de Proyectos', icon: <LayoutDashboard size={24} /> },
     { text: 'Análisis para la Toma de Decisiones', icon: <Gem size={24} /> },
   ];
-  const fullContent = [...phrases, ...phrases, ...phrases];
+  const fullContent = [...phrases, ...phrases, ...phrases, ...phrases];
 
   if (!isLargeScreen) {
     return null;
@@ -256,7 +256,7 @@ const Navigation = ({ activeSection, onNavigate, isMobileMenuOpen, toggleMobileM
           <div className="flex-shrink-0 flex items-center lg:flex-col lg:text-center">
             <User size={32} className="text-amber-600 mr-3 lg:mb-4" />
             <div className="flex flex-col items-center">
-              <h2 className="text-xl font-bold font-sans tracking-wider mb-2 title-shine">
+              <h2 className="text-xl font-bold font-sans tracking-wider mb-2 text-emerald-700 title-shine">
                 CURRICULUM VITAE
               </h2>
               <h1 className="text-2xl font-bold font-sans text-gray-50">
