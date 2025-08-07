@@ -2,12 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Animación de resplandor para el título */
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-100%); }
-}
-
+/* ---------------------- */
+/* ✨ Efecto de Título CV */
+/* ---------------------- */
 @keyframes shine-glow {
   0%, 100% {
     text-shadow: 0 0 5px #10b981, 0 0 10px #10b981;
@@ -22,10 +19,18 @@
   animation: shine-glow 3s ease-in-out infinite;
 }
 
+/* ------------------------- */
+/* 🚀 Carrusel Marquee Loop */
+/* ------------------------- */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
 .marquee-container {
   display: flex;
   height: 100%;
-  animation: marquee 60s linear infinite;
+  animation: marquee 45s linear infinite;
   animation-play-state: running;
 }
 
@@ -33,7 +38,6 @@
   animation-play-state: paused;
 }
 
-/* Efecto hover para pausar el carrusel */
 .carousel-container:hover .marquee-container {
   animation-play-state: paused;
 }
