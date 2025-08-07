@@ -152,6 +152,23 @@ const portfolioData = {
   ],
   education: [
     {
+      icon: <Brain size={24} />,
+      iconColor: '#8B5CF6',
+      title: 'LEARNING HEROES',
+      period: '2024-2025',
+      description: [
+        'Programa Intensivo de Transformación Digital',
+        'Especialización en Inteligencia Artificial Aplicada enfocado en implementación de soluciones inteligentes, optimización de procesos empresariales y aplicación práctica de tecnologías emergentes en entornos corporativos.'
+      ],
+    },
+    {
+      icon: <BookOpen size={24} />,
+      iconColor: '#8B5CF6',
+      title: 'Diplomado en Marketing Digital',
+      period: '2022',
+      description: 'ITAM',
+    },
+    {
       icon: <Landmark size={24} />,
       iconColor: '#3B82F6',
       title: 'ITESM',
@@ -165,19 +182,8 @@ const portfolioData = {
       period: '1991-1995',
       description: 'Licenciatura en Mercadotecnia (Mención Honorífica)',
     },
-    {
-      icon: <Brain size={24} />,
-      iconColor: '#8B5CF6',
-      title: 'LEARNING HEROES',
-      period: '2024-2025',
-      description: [
-        'Programa Intensivo de Transformación Digital',
-        'Especialización en Inteligencia Artificial Aplicada enfocado en implementación de soluciones inteligentes, optimización de procesos empresariales y aplicación práctica de tecnologías emergentes en entornos corporativos.'
-      ],
-    },
   ],
   otherStudies: [
-    'Diploma en Marketing Digital; ITAM 2022.',
     'Diploma en Gestión Estratégica de las Finanzas Públicas; ITESM; 2016-2017.',
     'Diploma en Mercadotecnia Competitiva; World Trade Center, Business Center; 1997-1998.',
     'Diploma en Finanzas; ITESM; 1994 - 1995.'
