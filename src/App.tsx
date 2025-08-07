@@ -322,6 +322,8 @@ const Navigation = ({ activeSection, onNavigate, isMobileMenuOpen, toggleMobileM
 
 // Componente para las secciones
 const Section = React.forwardRef(({ id, title, children }, ref) => {
+  const isExpandableSection = id === 'experiencia' || id === 'proyectos';
+
   return (
     <section
       id={id}
@@ -330,6 +332,12 @@ const Section = React.forwardRef(({ id, title, children }, ref) => {
     >
       <div className="flex items-center gap-4 mb-6 border-b pb-4 border-amber-600">
         <h2 className="text-3xl font-bold text-emerald-700 font-sans">{title}</h2>
+        {isExpandableSection && (
+          <div className="flex items-center text-gray-500 ml-2">
+            <Info size={16} className="mr-1" />
+            <p className="text-sm font-medium">Presiona para desplegar información</p>
+          </div>
+        )}
       </div>
       {children}
     </section>
