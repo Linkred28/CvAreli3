@@ -1,44 +1,60 @@
-import './index.css';
-import { Briefcase, Lightbulb, Globe2 } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import './App.css';
 
-function App() {
+const carouselItems = [
+  { emoji: '📊', label: 'Estrategia Empresarial' },
+  { emoji: '📈', label: 'Orientación a Resultados' },
+  { emoji: '🧠', label: 'Pensamiento Crítico y Sistémico' },
+  { emoji: '⚡', label: 'IA y Tecnología en Evolución' },
+];
+
+export default function App() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const intervalRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    intervalRef.current = window.setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % carouselItems.length);
+    }, 2500);
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen flex flex-col bg-white">
-
-      {/* Título en header */}
-      <header className="bg-slate-900 text-white text-center py-6">
-        <div className="text-sm text-emerald-400 uppercase tracking-wider mb-1">
+    <div className="min-h-screen bg-white text-gray-800 font-sans">
+      {/* TÍTULO ANIMADO */}
+      <header className="bg-[#0b172b] text-white py-10 text-center relative overflow-hidden">
+        <h1 className="text-4xl font-bold tracking-wide animate-pulse-glow">
           Curriculum Vitae
+        </h1>
+        <div className="mt-2 text-lg text-[#ffd700] font-semibold">
+          {carouselItems[currentIndex].emoji} {carouselItems[currentIndex].label}
         </div>
-        <h1 className="text-3xl font-bold tracking-wide">ARELI AGUILAR DELGADO</h1>
       </header>
 
-      {/* Carrusel */}
-      <section className="marquee-wrapper bg-gray-100 border-y border-gray-300 py-4">
-        <div className="marquee-track">
-          {Array(2).fill(0).map((_, idx) => (
-            <div key={idx} className="flex items-center gap-12 px-6">
-              <div className="marquee-item"><Briefcase className="icon" /> Estrategia Empresarial</div>
-              <div className="marquee-item"><Lightbulb className="icon" /> Pensamiento Crítico y Sistémico</div>
-              <div className="marquee-item"><Globe2 className="icon" /> IA y Tecnología en Evolución</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Contenido Principal */}
-      <main className="p-6 max-w-4xl mx-auto">
-        <h2 className="text-emerald-700 text-2xl font-bold mb-4">Perfil Profesional</h2>
-        <div className="space-y-4">
-          <div className="card">Ejecutiva bilingüe (inglés/español)...</div>
-          <div className="card">Mi trayectoria combina habilidades avanzadas...</div>
-          <div className="card">Actualmente participo en equipos interdisciplinarios...</div>
-          <div className="card">Cuento con amplia experiencia generando relaciones comerciales...</div>
-        </div>
+      {/* CONTENIDO DE PRUEBA */}
+      <main className="p-8 max-w-4xl mx-auto">
+        <section className="mb-10">
+          <h2 className="text-2xl font-bold text-[#0b172b] mb-4">
+            Perfil Profesional
+          </h2>
+          <ul className="space-y-4">
+            <li className="bg-gray-100 p-4 rounded shadow">
+              Ejecutiva bilingüe (inglés/español) con más de 20 años de experiencia en desarrollo de negocios, gestión estratégica de proyectos y análisis de información clave para la toma de decisiones de alta dirección.
+            </li>
+            <li className="bg-gray-100 p-4 rounded shadow">
+              Mi trayectoria combina habilidades avanzadas en planeación y gestión administrativa con una visión estratégica orientada a la transformación digital. Integro tecnologías emergentes —incluida la inteligencia artificial— para modernizar procesos, fortalecer la gestión empresarial y optimizar la toma de decisiones.
+            </li>
+            <li className="bg-gray-100 p-4 rounded shadow">
+              Actualmente participo en equipos interdisciplinarios que aplican inteligencia artificial en entornos empresariales, desarrollando soluciones innovadoras con impacto tangible en la organización.
+            </li>
+            <li className="bg-gray-100 p-4 rounded shadow">
+              Cuento con amplia experiencia generando relaciones comerciales estratégicas entre organizaciones privadas y públicas, mediante propuestas alineadas con objetivos corporativos.
+            </li>
+          </ul>
+        </section>
       </main>
-
     </div>
   );
 }
-
-export default App;
