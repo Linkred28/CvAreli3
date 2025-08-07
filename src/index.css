@@ -10,15 +10,15 @@
 
 @keyframes shine-glow {
   0%, 100% {
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff;
+    text-shadow: 0 0 5px #10b981, 0 0 10px #10b981;
   }
   50% {
-    text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #ffa500;
+    text-shadow: 0 0 20px #10b981, 0 0 30px #10b981, 0 0 40px #10b981, 0 0 50px #ffa500;
   }
 }
 
 .title-shine {
-  color: white !important;
+  color: #10b981 !important;
   animation: shine-glow 3s ease-in-out infinite;
 }
 
